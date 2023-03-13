@@ -25,7 +25,7 @@ const userSchema = new Schema(
         },
         litReview: [
             {
-                type: Schema.type.ObjectId,
+                type: Schema.Types.ObjectId,
                 ref: 'LitEntry'
             }
         ]
@@ -54,7 +54,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
 
 // Virtuals
 
-userSchema.virtual('LitReviewCount').get(function() {
+userSchema.virtual('litReviewCount').get(function() {
     return this.litReview.length;
 });
 
