@@ -1,8 +1,20 @@
 import React from 'react';
 
-function Home() {
-    return(
-        <h1>Home</h1>
+import { useQuery } from '@apollo/client';
+import { QUERY_LITREVIEWS } from '../utils/queries';
+
+const Home = () => {
+    const { loading, data } = useQuery(QUERY_LITREVIEWS);
+
+    const litReviews = data?.litEntries || [];
+    console.log(litReviews);
+
+return (
+    <main>
+        <div>
+            <div>lit reviews list</div>
+        </div>
+    </main>
     )
 };
 
