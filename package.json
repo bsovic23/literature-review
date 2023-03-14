@@ -1,0 +1,25 @@
+{
+  "name": "literature-review",
+  "version": "1.0.0",
+  "description": "As a Researcher, conducting literature review for a paper consists of creating an Excel document and copying and pasting links, info, \r terms, and other information to the excel sheet in an unformatted top to bottom of the sheet. The only way to then look through and \r figure out where certain links may be is scrolling via certain columns and/or ctrl + f.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsovic23/literature-review.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bsovic23/literature-review/issues"
+  },
+  "homepage": "https://github.com/bsovic23/literature-review#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
