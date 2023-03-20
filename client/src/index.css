@@ -18,3 +18,15 @@ footer {
   background-color: green;
   text-align: center;
 }
+
+/* NavBar 8?
+
+
+/* Literature Review Database Tables */
+.table-headers th {
+  background-color: teal;
+}
+
+.table-body {
+  background-color: goldenrod;
+}
