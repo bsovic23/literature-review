@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const LitReviewList = ({ litReviews, title }) => {
     if (!litReviews.length) {
         return <h3>There are no lit reviews yet</h3>
@@ -23,7 +25,13 @@ const LitReviewList = ({ litReviews, title }) => {
             {litReviews &&
             litReviews.map(lit => (
             <tr key={lit._id} class="table-body">
-                <th>{lit.username}</th>
+                <th>
+                    <Link
+                        to={`/profile/${lit.username}`}
+                    >
+                    {lit.username}
+                    </Link>
+                </th>
                 <th>{lit.createdAt}</th>
                 <th>{lit.searchTerm}</th>
                 <th>{lit.project}</th>

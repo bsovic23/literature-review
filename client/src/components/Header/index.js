@@ -1,11 +1,18 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const Header = () => {
     return (
-        <header>
+        <header class="header">
           <div>
-            <h1>Literature Review Database</h1>
+            <Link to="/">
+              Brit-ature Review
+            </Link>
           </div>
+          <nav>
+            <Link to="/login">Login</Link>
+          </nav>
         </header>
       );
 }

@@ -46,6 +46,12 @@ function App() {
                 element={<NoMatch />}
               />
             </Routes>
+            <Routes>
+              <Route path="/profile">
+                <Route path=":username" element={<Profile />} />
+                <Route path="" element={<Profile />} />
+              </Route>
+            </Routes>
           </div>
           <Footer />
         </div>
