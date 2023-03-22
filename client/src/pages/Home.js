@@ -14,7 +14,7 @@ const Home = () => {
         to the const litReviews which is used to send below 
         to the component
     */
-    const litReviews = data?.litEntries || [];
+    const litReviews = data?.litReviews || [];
 
 return (
     <main>

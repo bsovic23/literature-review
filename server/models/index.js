@@ -1,7 +1,7 @@
 const User = require('./User');
-const LitEntry = require('./LitEntry');
+const LitReview = require('./LitReview');
 
 module.exports = {
     User,
-    LitEntry
+    LitReview
 };

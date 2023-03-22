@@ -13,11 +13,11 @@ const typeDefs = gql`
         email: String
         password: String
         department: String
-        litReview: [LitEntry]
+        litReviews: [LitReview]
         litReviewCount: Int
     }
 
-    type LitEntry {
+    type LitReview {
         _id: ID
         username: String
         createdAt: String
@@ -34,13 +34,13 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(username: String): User
-        litEntries(username: String): [LitEntry]
+        litReviews(username: String): [LitReview]
     }
 
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, department: String): Auth
-        addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleNotes: String): LitEntry
+        addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleNotes: String): LitReview
     }
 `;
 

@@ -1,6 +1,6 @@
 const {
     User,
-    LitEntry
+    LitReview
 } = require('../models');
 
 const { AuthenticationError } = require('apollo-server-express');
@@ -13,7 +13,7 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
-                .populate('litReview');
+                .populate('litReviews');
 
                 return userData;  
             }
@@ -24,19 +24,19 @@ const resolvers = {
         users: async () => {
             return User.find()
                 .select('-__v -password')
-                .populate('litReview');
+                .populate('litReviews');
         },
 
         user: async (parent, { username }) => {
             return User.findOne({ username })
                 .select('-__v -password')
-                .populate('litReview');
+                .populate('litReviews');
         },
 
         // LitEntry Queries
-        litEntries: async (parent, { username }) => {
+        litReviews: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return LitEntry.find(params).sort({ createdAt: -1 });
+            return LitReview.find(params).sort({ createdAt: -1 });
         }
     },
     Mutation: {
@@ -68,15 +68,15 @@ const resolvers = {
         // Literature Review Mutations
         addLitReview: async ( parent, args, context) => {
             if (context.user) {
-                const litEntry = await LitEntry.create({ ...args, username: context.user.username });
+                const litReview = await LitReview.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { litReview: litEntry._id }},
+                    { $push: { litReviews: litReview._id }},
                     { new: true }
                 );
 
-                return litEntry;
+                return litReview;
             }
 
             throw new AuthenticationError('You must be logged in');

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const litEntrySchema = new Schema(
+const litReviewSchema = new Schema(
     {
         username: {
             type: String
@@ -33,6 +33,6 @@ const litEntrySchema = new Schema(
     }
 );
 
-const LitEntry = model('LitEntry', litEntrySchema);
+const LitReview = model('LitReview', litReviewSchema);
 
-module.exports = LitEntry;
+module.exports = LitReview;
