@@ -41,3 +41,44 @@ export const QUERY_USER = gql`
         }
     }
 `;
+
+export const QUERY_ME = gql`
+    query me {
+        me {
+        _id
+        username
+        email
+        department
+        litReviews {
+            _id
+            username
+            createdAt
+            searchTerm
+            project
+            articleSubject
+            articleLink
+            articleDatabase
+            articleYear
+            articleNotes
+        }
+        litReviewCount
+        }
+    }
+`;
+
+export const QUERY_ME_BASIC = gql`
+    {
+        me {
+        _id
+        username
+        email
+        litReviewCount
+        litReviews {
+            _id
+            createdAt
+            project
+            articleSubject
+        }
+    }
+}
+`;

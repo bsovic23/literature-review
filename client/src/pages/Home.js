@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_LITREVIEWS } from '../utils/queries';
+import { QUERY_LITREVIEWS, QUERY_ME_BASIC } from '../utils/queries';
+
+import Auth from '../utils/auth';
 
 import LitReviewList from '../components/LitReviewList';
 
@@ -15,6 +17,9 @@ const Home = () => {
         to the component
     */
     const litReviews = data?.litReviews || [];
+
+    const loggedIn = Auth.loggedIn();
+    const { data: litData } = useQuery(QUERY_ME_BASIC);
 
 return (
     <main class="home">
@@ -47,6 +52,13 @@ return (
                         <li>Leave a comment based on user experience or error for Brit to address</li>
                     </ul>
                 </div>
+            </div>
+            <div>
+                {loggedIn && litData ? (
+                    <div>
+                        {litData.me.username} has completed {litData.me.litReviewCount} Britature Reviews 
+                    </div>
+                ) : null }
             </div>
             <div>
                 {loading ? (
