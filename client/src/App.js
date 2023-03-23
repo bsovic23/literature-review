@@ -3,7 +3,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink  } from '@a
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // middleware fx essentially used to grab token, combine with httplink
-import {setContext } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 // Imported Components
 import Header from './components/Header';

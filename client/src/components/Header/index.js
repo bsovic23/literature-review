@@ -5,15 +5,19 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <header class="header">
-          <div>
-            <Link to="/">
-              Brit-ature Review
+          <div class="header-section">
+            <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+              <h1>Brit-ature Review</h1>
             </Link>
           </div>
-          <nav>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
-          </nav>
+          <div class="header-section">
+            <div>
+              <p><Link to="/login" style={{textDecoration: 'none', color: 'black'}}>Login</Link></p>
+            </div>
+            <div>
+              <p><Link to="/signup" style={{textDecoration: 'none', color: 'black'}}>Signup</Link></p>
+            </div>
+          </div>
         </header>
       );
 }

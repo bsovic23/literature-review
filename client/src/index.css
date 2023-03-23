@@ -1,26 +1,64 @@
+/* Root Variables */
+:root {
+  --colorOne: rgb(36, 73, 209);
+}
+
 body {
   margin: 0;
-  background-color: gray;
+  background: linear-gradient(15deg, #0d9886, #9a968b);
   font-weight: 600;
   font-family: "Gill Sans", sans-serif;
 }
 
-/* Root Variables */
-
 /* Header */
 header {
-  background-color: teal;
+  background-color: var(--colorOne);
   text-align: center;
+  padding: 20px;
+  border: 5px black solid;
+}
+
+header .header-section {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+.header .header-section p:hover{
+  background-color: yellow;
 }
 
 /* Footer */
 footer {
-  background-color: green;
+  background-color: var(--colorOne);
+  text-align: center;
+  padding: 20px;
+  border: 5px black solid;
+}
+
+/* NavBar */
+
+
+/* Home */
+.home h1 {
   text-align: center;
 }
 
-/* NavBar 8?
+.home p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
+.home .home-toc {
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.home .home-toc li {
+  list-style-type: none;
+}
 
 /* Literature Review Database Tables */
 .table-headers th {
