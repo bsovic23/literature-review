@@ -45,6 +45,7 @@ return (
                         <li>See a list of all Brit-ature reviews you have conducted</li>
                         <li>Download an excel spredsheet of all Brit-ature reviews you have conducted</li>
                         <li>See a list of department members you're associated with to also view their Brit-ature reviews</li>
+                        <li>Add a Brit-ature Review to the application</li>
                         <h4>Brit-ature Review Search</h4>
                         <li>Find certain Brit-ature reviews you and/or others in your deparment have conducted</li>
                         <li>Download an excel spredsheet based on your Brit-ature reviews search criteria</li>

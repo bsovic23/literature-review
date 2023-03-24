@@ -23,3 +23,20 @@ export const MUTATION_ADD_USER = gql`
         }
     }
 `;
+
+export const MUTATION_ADD_LITENTRY = gql`
+    mutation addLitReview($searchTerm: String, $project: String, $articleSubject: String, $articleLink: String, $articleDatabase: String, $articleYear: String, $articleNotes: String) {
+        addLitReview(searchTerm: $searchTerm, project: $project, articleSubject: $articleSubject, articleLink: $articleLink, articleDatabase: $articleDatabase, articleYear: $articleYear, articleNotes: $articleNotes) {
+        _id
+        username
+        createdAt
+        searchTerm
+        project
+        articleSubject
+        articleLink
+        articleDatabase
+        articleYear
+        articleNotes
+        }
+    }
+`;

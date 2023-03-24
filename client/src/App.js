@@ -16,6 +16,7 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Projects from './pages/Projects';
 import Signup from './pages/Signup';
+import AddLitEntry from './pages/AddLitEntry';
 
 
 // Application
@@ -57,6 +58,10 @@ function App() {
               <Route
               path="/signup"
               element={<Signup />}
+              />
+               <Route
+              path="/addlitentry"
+              element={<AddLitEntry />}
               />
               <Route
                 path="*"
