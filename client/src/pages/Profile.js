@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import LitReviewList from '../components/LitReviewList';
+import LitReviewForm from '../components/LitReviewForm';
 
 import Auth from '../utils/auth';
 
@@ -45,6 +46,7 @@ const Profile = () => {
             <div>
                 <LitReviewList litReviews={user.litReviews} title={`${user.username}'s Literature Reviews:`}/>
             </div>
+            <div>{!userParam && <LitReviewForm />}</div>
         </section>
     );
 };
