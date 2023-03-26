@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { MUTATION_ADD_LITENTRY } from '../../utils/mutations';
+import { QUERY_LITREVIEWS, QUERY_ME  } from '../../utils/queries';
 
 const LitReviewForm = () => {
 
@@ -14,7 +15,28 @@ const LitReviewForm = () => {
     const [ articleNotes, setVar7 ] = useState('');
     
     
-    const [addLitReview, { error }] = useMutation(MUTATION_ADD_LITENTRY);
+    const [addLitReview, { error }] = useMutation(MUTATION_ADD_LITENTRY, {
+        update(cache, { data: { addLitReview } }) {
+      
+          try {
+            // update me array's cache
+            const { me } = cache.readQuery({ query: QUERY_ME });
+            cache.writeQuery({
+              query: QUERY_ME,
+              data: { me: { ...me, litReviews: [...me.litReviews, addLitReview] } },
+            });
+          } catch (e) {
+            console.warn("First thought insertion by user!")
+          }
+      
+          // update thought array's cache
+          const { litReviews } = cache.readQuery({ query: QUERY_LITREVIEWS });
+          cache.writeQuery({
+            query: QUERY_LITREVIEWS,
+            data: { litReviews: [addLitReview, ...litReviews] },
+          });
+        }
+      });
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
