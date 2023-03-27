@@ -20,18 +20,24 @@ const Header = () => {
           <nav class="header-nav">
             {Auth.loggedIn() ? (
               <>
-                <Link to="/profile">Me</Link>
-                <a href="/" onClick={logout}>
-                  Logout
-                </a>
+                <div><Link to="/profile" style={{textDecoration: 'none', color: 'black'}}>Me</Link></div>
+                <div><a href="/" onClick={logout} style={{textDecoration: 'none', color: 'black'}}>
+                  Logout 
+                </a></div>
               </>
             ) : (
               <>
-               <Link to="/login" style={{textDecoration: 'none', color: 'black'}}>Login</Link>
-                <Link to="/signup" style={{textDecoration: 'none', color: 'black'}}>Signup</Link>
+                <div><Link to="/login" style={{textDecoration: 'none', color: 'black'}}>Login</Link></div>
+                <div><Link to="/signup" style={{textDecoration: 'none', color: 'black'}}>Signup</Link></div>
               </>
             )}
           </nav>
+          <div class="header-nav">
+            <div><Link to="/" style={{textDecoration: 'none', color: 'black'}}>Home</Link></div>
+            <div>Add a Brit-ature Review</div>
+            <div>Brit-ature Review Search</div>
+            <div>Contact</div>
+          </div>
         </header>
       );
 }
