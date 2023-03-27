@@ -39,7 +39,7 @@ const Profile = () => {
         <section class="profile">
             <div>
                 <h2>
-                    Viewing { userParam ? `${user.username}'s` : 'your'} profile.
+                    Viewing { userParam ? `${user.username}'s` : 'your'} profile
                 </h2>
             </div>
 

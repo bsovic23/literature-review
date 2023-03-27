@@ -119,7 +119,7 @@ const LitReviewForm = () => {
                     value={articleNotes}
                     onChange={(e) => setVar7(e.target.value)}
                 />
-                <button type='submit'>
+                <button type='submit' class="litreview-form-btn">
                     Submit Brit-ature Review
                 </button>
             </form>

@@ -8,7 +8,7 @@ const LitReviewList = ({ litReviews, title }) => {
     }
 
     return(
-        <div>
+        <div class="table">
             <h3>{title}</h3>
             <table border="1">
             <tr class="table-headers">

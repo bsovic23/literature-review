@@ -25,16 +25,20 @@ return (
     <main class="home">
         <div>
             <div>
-                <h1>Brit-ature Review</h1>
+                <h1>Welcome</h1>
                 <p>
-                    Welcome to Brit-ature Review. This application was developed to easily store and search literature reviews.
-                    The site allows the user to enter information regarding a literature review as a Brit-ature Reviw. Instead of having an excel document
+                    Brit-ature Review is an application developed to easily store and search literature reviews.
+                    The site allows the user to enter information regarding a literature review as a Brit-ature Review. Instead of having an excel document
                     that is filled in an unorganized manner, and only searchable by ctrl + f, Brit-atrue Review was developed to
                     provide an organized easy to search application. See the table of contents below to help guide you in this application
                 </p>
+                <p>
+                    The application also allows the user to use past literature reviews completed and able to search and compose a literature review
+                    export of previous literature reviews. This means an individual does not need to have multiple different excel literature reviews
+                    for each project but rather complete and enter all into this application.
+                </p>
                 <div class="home-toc">
                     <h3>Table of Contents</h3>
-                    <ul>
                         <h4>Home</h4>
                         <li>
                             The literature reviews below consist of all literature reviews conducted and are sorted by most recent date of entry into the system.
@@ -50,7 +54,6 @@ return (
                         <li>Download an excel spredsheet based on your Brit-ature reviews search criteria</li>
                         <h4>Contact</h4>
                         <li>Leave a comment based on user experience or error for Brit to address</li>
-                    </ul>
                 </div>
             </div>
             <div>

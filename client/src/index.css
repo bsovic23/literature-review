@@ -1,11 +1,11 @@
 /* Root Variables */
 :root {
-  --colorOne: rgb(36, 73, 209);
+  --colorOne: rgb(45, 162, 180);
 }
 
 body {
   margin: 0;
-  background: linear-gradient(15deg, #0d9886, #9a968b);
+  background: linear-gradient(15deg, #d59027, #9a968b);
   font-weight: 600;
   font-family: "Gill Sans", sans-serif;
 }
@@ -13,17 +13,26 @@ body {
 /* Header */
 header {
   background-color: var(--colorOne);
-  text-align: center;
   padding: 20px;
   border: 5px black solid;
 }
 
-header .header-section {
-  display: inline-block;
-  margin-left: 300px;
+header .header-section h1 {
+  text-align: center;
 }
 
-.header .header-section p:hover{
+.header .header-nav {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header .header-nav div {
+  padding-left: 1%;
+  padding-right: 1%;
+  display: inline-block;
+}
+
+.header .header-nav div:hover {
   background-color: yellow;
 }
 
@@ -35,8 +44,23 @@ footer {
   border: 5px black solid;
 }
 
-/* NavBar */
+/* Signup and login */
+.signup-card, .login {
+  text-align: center;
+}
 
+.signup input, .login input {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 43%;
+  border: black 3px solid;
+}
+
+.signup-form-btn, .login-form-btn {
+  border: black 3px solid;
+  margin-bottom: 200px;
+}
 
 /* Home */
 .home h1 {
@@ -49,11 +73,15 @@ footer {
 }
 
 .home .home-toc {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 80px;
+  margin-right: 80px;
   text-align: center;
   border: 2px solid black;
   border-radius: 10px;
+}
+
+.home .home-toc h4 {
+  text-decoration: underline;
 }
 
 .home .home-toc li {
@@ -61,10 +89,30 @@ footer {
 }
 
 /* Literature Review Database Tables */
+.table {
+margin: 25px;
+}
+
 .table-headers th {
-  background-color: teal;
+  background-color: var(--colorOne);
 }
 
 .table-body {
-  background-color: goldenrod;
+  background-color: rgba(156, 153, 145, 0.771);
+}
+
+
+/* Literature Review Form Add */
+.litreview-form input, textarea {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 43%;
+  border: black 3px solid;
+}
+
+.litreview-form .litreview-form-btn {
+  border: black 3px solid;
+  margin-bottom: 20px;
+  margin-left: 43%;
 }
