@@ -7,7 +7,8 @@ function Projects() {
                 <h1>All Projects</h1>
             </div>
             <div>
-                List titles and names of all projects
+                INSERT BUTTONS OF ALL PROJECTS YOU HAVE AND WHEN CLICK IT SHOWS THE LIT REVIEWS ASSOCIATED WITH
+                THAT PROJECT
             </div>
         </section>
     )

@@ -59,6 +59,10 @@ function App() {
               element={<Signup />}
               />
               <Route
+              path="/projects"
+              element={<Projects />}
+              />
+              <Route
                 path="*"
                 element={<NoMatch />}
               />
