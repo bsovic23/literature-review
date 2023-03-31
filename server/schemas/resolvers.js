@@ -37,6 +37,11 @@ const resolvers = {
         litReviews: async (parent, { username }) => {
             const params = username ? { username } : {};
             return LitReview.find(params).sort({ createdAt: -1 });
+        },
+        // WORKS BUT NOT ADDED YET INTO THE APPLICATION
+        projects: async (parent, { project }) => {
+            const params = project ? { project } : {};
+            return LitReview.find(params).sort({ createdAt: -1 });
         }
     },
     Mutation: {

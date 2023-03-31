@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import ProjectsMenu from '../components/ProjectsMenu';
+import ProjectsList from '../components/ProjectsList';
 
 function Projects() {
+
+    const [currentProject, setProject] = useState('');
+
     return(
         <section>
             <div>
-                <h1>All Projects</h1>
+                <h1>Projects</h1>
             </div>
             <div>
-                INSERT BUTTONS OF ALL PROJECTS YOU HAVE AND WHEN CLICK IT SHOWS THE LIT REVIEWS ASSOCIATED WITH
-                THAT PROJECT
+                <ProjectsMenu setProject={setProject} />
+                <ProjectsList currentProject={currentProject} />
             </div>
         </section>
     )
