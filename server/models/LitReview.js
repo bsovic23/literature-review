@@ -13,7 +13,7 @@ const litReviewSchema = new Schema(
             type: String
         },
         project: {
-            type: String
+            type: String,
         },
         articleSubject: {
             type: String
