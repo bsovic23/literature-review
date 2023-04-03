@@ -14,7 +14,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
-import Projects from './pages/Projects';
+import Project from './pages/Project';
 import Signup from './pages/Signup';
 
 
@@ -59,8 +59,8 @@ function App() {
               element={<Signup />}
               />
               <Route
-              path="/projects"
-              element={<Projects />}
+              path="/project"
+              element={<Project />}
               />
               <Route
                 path="*"

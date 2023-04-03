@@ -5,6 +5,8 @@ const projectSchema = new Schema(
         projectName: {
             type: String,
             required: true,
+            unique: true,
+            trim: true
         },
         projectDetails: {
             type: String

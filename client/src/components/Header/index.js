@@ -36,7 +36,7 @@ const Header = () => {
             <div><Link to="/" style={{textDecoration: 'none', color: 'black'}}>Home</Link></div>
             <div>Add a Brit-ature Review</div>
             <div>Brit-ature Review Search</div>
-            <div><Link to="/projects" style={{textDecoration: 'none', color: 'black'}}>Your Projects</Link></div>
+            <div><Link to="/project" style={{textDecoration: 'none', color: 'black'}}>Your Projects</Link></div>
             <div>Contact</div>
           </div>
         </header>
