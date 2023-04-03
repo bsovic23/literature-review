@@ -40,3 +40,14 @@ export const MUTATION_ADD_LITENTRY = gql`
         }
     }
 `
+
+export const MUTATION_ADD_PROJECT = gql`
+    mutation Mutation($projectName: String, $projectDetails: String, $projectType: String) {
+        addProject(projectName: $projectName, projectDetails: $projectDetails, projectType: $projectType) {
+        _id
+        projectName
+        projectDetails
+        projectType
+        }
+  }
+`;

@@ -16,7 +16,7 @@ import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 import Project from './pages/Project';
 import Signup from './pages/Signup';
-
+import AddProject from './pages/AddProject';
 
 // Application
 function App() {
@@ -61,6 +61,10 @@ function App() {
               <Route
               path="/project"
               element={<Project />}
+              />
+              <Route
+              path="/addproject"
+              element={<AddProject />}
               />
               <Route
                 path="*"

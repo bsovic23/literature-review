@@ -1,6 +1,13 @@
 /* Root Variables */
 :root {
   --colorOne: rgb(45, 162, 180);
+
+  /* Input Root Variables */
+  --input-display: block;
+  --input-margin-top: 10px;
+  --input-margin-bottom: 10px;
+  --input-margin-left: 43%;
+  --input-border: black 3px solid; 
 }
 
 body {
@@ -50,11 +57,11 @@ footer {
 }
 
 .signup input, .login input {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 43%;
-  border: black 3px solid;
+  display: var(--input-display);
+  margin-top: var(--input-margin-top);
+  margin-bottom: var(--input-margin-bottom);
+  margin-left: var(--input-margin-left);
+  border: var(--input-border);
 }
 
 .signup-form-btn, .login-form-btn {
@@ -115,4 +122,17 @@ margin: 25px;
   border: black 3px solid;
   margin-bottom: 20px;
   margin-left: 43%;
+}
+
+/* Add Project */
+.add-project-form label, .add-project-form button {
+  margin-left: var(--input-margin-left);
+}
+
+.add-project-form input {
+  display: var(--input-display);
+  margin-top: var(--input-margin-top);
+  margin-bottom: var(--input-margin-bottom);
+  margin-left: var(--input-margin-left);
+  border: var(--input-border);
 }
