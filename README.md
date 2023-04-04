@@ -2,6 +2,15 @@
 
 ## Table of Contents
 
+[Project-Description](#project-description)
+
+[Tools-Used](#tools-used)
+
+[Deployed-Application](#deployed-application)
+
+[Future-Developments](#future-developments)
+
+[Application-Screenshots](#application-screenshots)
 
 ## Project Description
 
@@ -13,10 +22,28 @@ I designed this application to allow a user to easily save literature review inf
 
 The application then allows the user to easily find and/or search their recent saves and export an excel sheet of literature reviews they conducted for any purpose based on search terms, site, information.
 
+## Tools Used
+
+* React.js
+* MongoDb
+* Graphql
+* CSS
+* bcrypt
+* jsonwebtoken
+
 ## Deployed Application
 
 The deployed application can be found at:
 
-## Tools Used
+## Future Developments
 
-## Screenshots of Application
+* I would like to make the add-lit-review page in a way that allows the user to self-design their own tabs
+
+* I would like to update the stats page with in-depth stats, graphs, and a dashboard customizable to the user
+
+## Application Screenshots
+
+![](client/public/images/Home.PNG)
+![](client/public/images/TableOfContents.PNG)
+![](client/public/images/AddProject.PNG)
+![](client/public/images/AddLitReview.PNG)
