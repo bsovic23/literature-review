@@ -51,3 +51,15 @@ export const MUTATION_ADD_PROJECT = gql`
         }
   }
 `;
+
+export const MUTATION_ADD_COMMENT = gql`
+    mutation Mutation($commentType: String, $commentBody: String) {
+        addComment(commentType: $commentType, commentBody: $commentBody) {
+        _id
+        username
+        commentTime
+        commentType
+        commentBody
+        }
+    }
+`

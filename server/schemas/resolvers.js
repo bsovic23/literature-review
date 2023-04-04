@@ -2,7 +2,8 @@ const {
     User,
     LitReview,
     Project,
-    Department
+    Department,
+    Comment
 } = require('../models');
 
 const { AuthenticationError } = require('apollo-server-express');
@@ -44,6 +45,11 @@ const resolvers = {
         projects: async () => {
             return Project.find()
             .populate('projectLitReview');
+        },
+
+        // Comment Queries
+        comments: async () => {
+            return Comment.find();
         }
     },
     Mutation: {
@@ -106,6 +112,23 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You must be logged in');
+        },
+
+        // Commment Mutations
+        addComment: async (parent, args, context) => {
+            if (context.user) {
+                const comment = await Comment.create({ ... args, username: context.user.username });
+
+                User.findByIdAndUpdate([
+                    { _id: context.user._id },
+                    { $push: { comments: comment._id }},
+                    { new: true }
+                ]);
+
+                return comment
+            }
+
+            throw new AuthenticationError('You need to be logged in to submit a comment');
         }
     }
 };

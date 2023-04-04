@@ -110,7 +110,7 @@ margin: 25px;
 
 
 /* Literature Review Form Add */
-.litreview-form input, textarea {
+.litreview-form input, .litreview-form textarea {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -130,6 +130,20 @@ margin: 25px;
 }
 
 .add-project-form input {
+  display: var(--input-display);
+  margin-top: var(--input-margin-top);
+  margin-bottom: var(--input-margin-bottom);
+  margin-left: var(--input-margin-left);
+  border: var(--input-border);
+}
+
+
+/* Comment */
+.comment label, .comment button {
+  margin-left: var(--input-margin-left);
+}
+
+.comment select, .comment textarea {
   display: var(--input-display);
   margin-top: var(--input-margin-top);
   margin-bottom: var(--input-margin-bottom);
