@@ -18,6 +18,7 @@ import Project from './pages/Project';
 import Signup from './pages/Signup';
 import AddProject from './pages/AddProject';
 import Contact from './pages/Contact';
+import Stats from './pages/Stats';
 
 // Application
 function App() {
@@ -70,6 +71,10 @@ function App() {
               <Route
               path="/contact"
               element={<Contact />}
+              />
+               <Route
+              path="/stats"
+              element={<Stats />}
               />
               <Route
                 path="*"
