@@ -21,12 +21,19 @@ const userSchema = new Schema(
             minLength: 5
         },
         department: {
-            type: String
+            ref: 'Department',
+            type: Schema.Types.ObjectId
         },
         litReviews: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'LitReview'
+            }
+        ],
+        comments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Comment'
             }
         ]
     },

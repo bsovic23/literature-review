@@ -14,9 +14,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
-import Projects from './pages/Projects';
+import Project from './pages/Project';
 import Signup from './pages/Signup';
-
+import AddProject from './pages/AddProject';
+import Contact from './pages/Contact';
 
 // Application
 function App() {
@@ -57,6 +58,18 @@ function App() {
               <Route
               path="/signup"
               element={<Signup />}
+              />
+              <Route
+              path="/project"
+              element={<Project />}
+              />
+              <Route
+              path="/addproject"
+              element={<AddProject />}
+              />
+              <Route
+              path="/contact"
+              element={<Contact />}
               />
               <Route
                 path="*"

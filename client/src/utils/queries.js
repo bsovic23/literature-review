@@ -82,3 +82,26 @@ export const QUERY_ME_BASIC = gql`
     }
 }
 `;
+
+export const QUERY_PROJECTS = gql`
+     {
+        projects {
+        _id
+        projectName
+        projectDetails
+        projectType
+        projectLitReview {
+            _id
+            username
+            createdAt
+            searchTerm
+            project
+            articleSubject
+            articleLink
+            articleDatabase
+            articleYear
+            articleNotes
+        }
+        }
+    }
+`;

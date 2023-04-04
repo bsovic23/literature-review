@@ -40,3 +40,26 @@ export const MUTATION_ADD_LITENTRY = gql`
         }
     }
 `
+
+export const MUTATION_ADD_PROJECT = gql`
+    mutation Mutation($projectName: String, $projectDetails: String, $projectType: String) {
+        addProject(projectName: $projectName, projectDetails: $projectDetails, projectType: $projectType) {
+        _id
+        projectName
+        projectDetails
+        projectType
+        }
+  }
+`;
+
+export const MUTATION_ADD_COMMENT = gql`
+    mutation Mutation($commentType: String, $commentBody: String) {
+        addComment(commentType: $commentType, commentBody: $commentBody) {
+        _id
+        username
+        commentTime
+        commentType
+        commentBody
+        }
+    }
+`

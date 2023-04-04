@@ -1,6 +1,9 @@
 const {
     User,
-    LitReview
+    LitReview,
+    Project,
+    Department,
+    Comment
 } = require('../models');
 
 const { AuthenticationError } = require('apollo-server-express');
@@ -37,6 +40,16 @@ const resolvers = {
         litReviews: async (parent, { username }) => {
             const params = username ? { username } : {};
             return LitReview.find(params).sort({ createdAt: -1 });
+        },
+        // Project Queries
+        projects: async () => {
+            return Project.find()
+            .populate('projectLitReview');
+        },
+
+        // Comment Queries
+        comments: async () => {
+            return Comment.find();
         }
     },
     Mutation: {
@@ -69,17 +82,53 @@ const resolvers = {
         addLitReview: async ( parent, args, context) => {
             if (context.user) {
                 const litReview = await LitReview.create({ ...args, username: context.user.username });
+                const { project } = args;
 
-                await User.findByIdAndUpdate(
+                await Promise.all([
+                User.findByIdAndUpdate(
                     { _id: context.user._id },
                     { $push: { litReviews: litReview._id }},
                     { new: true }
-                );
+                ),
+                Project.findOneAndUpdate(
+                    { projectName: project },
+                    { $push: { projectLitReview: litReview._id }},
+                    { new: true }
+                ),
+                ]);
 
                 return litReview;
             }
 
             throw new AuthenticationError('You must be logged in');
+        },
+
+        // Project Mutations
+        addProject: async (parent, args, context) => {
+            if (context.user) {
+                const project = await Project.create({ ... args })
+            
+                return project;
+            }
+
+            throw new AuthenticationError('You must be logged in');
+        },
+
+        // Commment Mutations
+        addComment: async (parent, args, context) => {
+            if (context.user) {
+                const comment = await Comment.create({ ... args, username: context.user.username });
+
+                User.findByIdAndUpdate([
+                    { _id: context.user._id },
+                    { $push: { comments: comment._id }},
+                    { new: true }
+                ]);
+
+                return comment
+            }
+
+            throw new AuthenticationError('You need to be logged in to submit a comment');
         }
     }
 };
