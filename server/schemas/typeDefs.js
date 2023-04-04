@@ -45,6 +45,7 @@ const typeDefs = gql`
         articleLink: String
         articleDatabase: String
         articleYear: String
+        articleSourceType: String
         articleNotes: String
     }
 
@@ -68,7 +69,7 @@ const typeDefs = gql`
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, department: String): Auth
-        addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleNotes: String): LitReview
+        addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleSourceType: String, articleNotes: String): LitReview
         addProject(projectName: String, projectDetails: String, projectType: String): Project
         addComment(commentType: String, commentBody: String): Comment
     }

@@ -12,6 +12,7 @@ export const QUERY_LITREVIEWS = gql`
         articleLink
         articleDatabase
         articleYear
+        articleSourceType
         articleNotes
         }
     }
@@ -35,6 +36,7 @@ export const QUERY_USER = gql`
             articleLink
             articleDatabase
             articleYear
+            articleSourceType
             articleNotes
         }
         litReviewCount
@@ -59,6 +61,7 @@ export const QUERY_ME = gql`
             articleLink
             articleDatabase
             articleYear
+            articleSourceType
             articleNotes
         }
         litReviewCount
@@ -100,6 +103,7 @@ export const QUERY_PROJECTS = gql`
             articleLink
             articleDatabase
             articleYear
+            articleSourceType
             articleNotes
         }
         }

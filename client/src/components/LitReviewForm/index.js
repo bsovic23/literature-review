@@ -12,7 +12,8 @@ const LitReviewForm = () => {
     const [ articleLink, setVar4 ] = useState('');
     const [ articleDatabase, setVar5 ] = useState('');
     const [ articleYear, setVar6 ] = useState('');
-    const [ articleNotes, setVar7 ] = useState('');
+    const [ articleSourceType, setVar7 ] = useState('');
+    const [ articleNotes, setVar8 ] = useState('');
     
     
     const [addLitReview, { error }] = useMutation(MUTATION_ADD_LITENTRY, {
@@ -50,6 +51,7 @@ const LitReviewForm = () => {
                     articleLink,
                     articleDatabase,
                     articleYear,
+                    articleSourceType,
                     articleNotes
                 },
             });
@@ -61,6 +63,7 @@ const LitReviewForm = () => {
             setVar5('');
             setVar6('');
             setVar7('');
+            setVar8('');
 
         } catch (e) {
             console.error(e);
@@ -112,12 +115,23 @@ const LitReviewForm = () => {
                     value={articleYear}
                     onChange={(e) => setVar6(e.target.value)}
                 />
+                <label htmlFor='articleSourceType'>Article Source Type:</label>
+                <select name='articleSourceType' id='articleSourceType'
+                value={articleSourceType} onChange={(e) => setVar7(e.target.value)}
+                >
+                    <option value='Peer Reviewed Journal Article'>Peer Reviewed Journal Article</option>
+                    <option value='Academic Book'>Academic Book</option>
+                    <option value='Article in Professional Journal'>Article in Professional Journal</option>
+                    <option value='Government Website'>Government Website</option>
+                    <option value='General Website'>General Website</option>
+                    <option value='Other'>Other</option>
+                </select>
                 <textarea
                     palceholder='Enter Notes Here'
                     name='articleNotes'
                     id='articleNotes'
                     value={articleNotes}
-                    onChange={(e) => setVar7(e.target.value)}
+                    onChange={(e) => setVar8(e.target.value)}
                 />
                 <button type='submit' class="litreview-form-btn">
                     Submit Brit-ature Review

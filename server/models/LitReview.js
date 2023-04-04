@@ -27,6 +27,9 @@ const litReviewSchema = new Schema(
         articleYear: {
             type: String
         },
+        articleSourceType: {
+            type: String
+        },
         articleNotes: {
             type: String
         }

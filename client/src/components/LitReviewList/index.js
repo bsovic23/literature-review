@@ -20,6 +20,7 @@ const LitReviewList = ({ litReviews, title }) => {
                <th>Article Link</th>
                <th>Article Database</th>
                <th>Article Year</th>
+               <th>Article Source Type</th>
                <th>Article Notes</th>
             </tr>
             {litReviews &&
@@ -39,6 +40,7 @@ const LitReviewList = ({ litReviews, title }) => {
                 <th>{lit.articleLink}</th>
                 <th>{lit.articleDatabase}</th>
                 <th>{lit.articleYear}</th>
+                <th>{lit.articleSourceType}</th>
                 <th>{lit.articleNotes}</th>
             </tr>
             ))
