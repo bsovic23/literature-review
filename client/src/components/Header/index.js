@@ -38,8 +38,10 @@ const Header = () => {
             <div>Brit-ature Review Search</div>
             <div><Link to="/addproject" style={{textDecoration: 'none', color: 'black'}}>Add Project</Link></div>
             <div><Link to="/project" style={{textDecoration: 'none', color: 'black'}}>All Projects</Link></div>
-            <div><Link to="/contact" style={{textDecoration: 'none', color: 'black'}}>Contact</Link></div>
             <div><Link to="/stats" style={{textDecoration: 'none', color: 'black'}}>Brit-ature Review Statistics</Link></div>
+          <div class="header-nav">
+            <div><Link to="/contact" style={{textDecoration: 'none', color: 'black'}}>Contact</Link></div>
+          </div>
           </div>
         </header>
       );

@@ -51,6 +51,24 @@ footer {
   border: 5px black solid;
 }
 
+.icon {
+  height: 50px;
+  width: 75px;
+  margin-bottom: 10px;
+}
+
+#github-icon {
+  color: black
+}
+
+#linkedin-icon {
+  color: blue
+}
+
+#linkedin-icon:hover, #github-icon:hover {
+  color: yellow
+}
+
 /* Signup and login */
 .signup-card, .login {
   text-align: center;
@@ -110,7 +128,7 @@ margin: 25px;
 
 
 /* Literature Review Form Add */
-.litreview-form input, .litreview-form textarea {
+.litreview-form input, .litreview-form textarea, .litreview-form select {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;

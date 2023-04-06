@@ -39,19 +39,27 @@ return (
                 </p>
                 <div class="home-toc">
                     <h3>Table of Contents</h3>
+                        <h4>Me</h4>
+                        <li>See a list of all Brit-ature reviews you have created</li>
+                        <li>Download an excel spredsheet of all Brit-ature reviews you have conducted</li>
+                        <li>See a list of department members you're associated with to also view their Brit-ature reviews</li>
+                        <li>Add a Brit-ature Review to the application</li>
                         <h4>Home</h4>
                         <li>
                             The literature reviews below consist of all literature reviews conducted and are sorted by most recent date of entry into the system.
                         </li>
                         <h4>Add a Brit-ature Review</h4>
                         <li>Add a Brit-ature Review to the application</li>
-                        <h4>Profile</h4>
-                        <li>See a list of all Brit-ature reviews you have conducted</li>
-                        <li>Download an excel spredsheet of all Brit-ature reviews you have conducted</li>
-                        <li>See a list of department members you're associated with to also view their Brit-ature reviews</li>
                         <h4>Brit-ature Review Search</h4>
-                        <li>Find certain Brit-ature reviews you and/or others in your deparment have conducted</li>
+                        <li>Search the Brit-ature Review Database by certain variable(s)</li>
                         <li>Download an excel spredsheet based on your Brit-ature reviews search criteria</li>
+                        <h4>Add Project</h4>
+                        <li>Add a project that Brit-ature Reviews added can be associated with</li>
+                        <h4>All Projects</h4>
+                        <li>See all current projects added to the Brit-ature Review application</li>
+                        <h4>Brit-ature Review Statistics</h4>
+                        <li>See statistics of the application use</li>
+                        <li>See statistics of Brit-ature Reviews</li>
                         <h4>Contact</h4>
                         <li>Leave a comment based on user experience or error for Brit to address</li>
                 </div>
