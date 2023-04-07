@@ -19,6 +19,7 @@ import Signup from './pages/Signup';
 import AddProject from './pages/AddProject';
 import Contact from './pages/Contact';
 import Stats from './pages/Stats';
+import SingleLitEntry from './pages/SingleLitEntry';
 
 // Application
 function App() {
@@ -59,6 +60,10 @@ function App() {
               <Route
               path="/signup"
               element={<Signup />}
+              />
+              <Route
+              path="/single-entry"
+              element={<SingleLitEntry />}
               />
               <Route
               path="/project"

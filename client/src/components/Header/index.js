@@ -34,7 +34,7 @@ const Header = () => {
           </nav>
           <div class="header-nav">
             <div><Link to="/" style={{textDecoration: 'none', color: 'black'}}>Home</Link></div>
-            <div>Add a Brit-ature Review</div>
+            <div><Link to="/single-entry" style={{textDecoration: 'none', color: 'black'}}>Add a Brit-ature Review</Link></div>
             <div>Brit-ature Review Search</div>
             <div><Link to="/addproject" style={{textDecoration: 'none', color: 'black'}}>Add Project</Link></div>
             <div><Link to="/project" style={{textDecoration: 'none', color: 'black'}}>All Projects</Link></div>
