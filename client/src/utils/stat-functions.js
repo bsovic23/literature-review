@@ -1,39 +1,28 @@
 // Functions used for javascript
 
-/* Function will filter over the array and create a new array
-    with just the values of the "variable" passed into the fx
-    and return the new array 'filterArray'
-*/
-function filterResults(array, variable) {
+function runStats(array, variable) {
     const filterArray = array.map(item => item[variable]);
+    const freq = {};
 
-    return filterArray;
+    if (!filterArray) {
+        console.log('nothing to filter');
+    } else {
+        filterArray.forEach((value) => {
+            freq[value] = freq[value] ? freq[value] + 1: 1;
+        })
+    }
+
+    if (!freq) {
+        console.log('nothing to freq')
+    } else {
+        const entries = Object.entries(freq);
+        entries.sort((a, b) => b[1] - a[1]);
+        const top5 = entries.slice(0,5);
+        const resultTop5 = Object.fromEntries(top5);
+        return resultTop5;
+    }
 }; 
 
-/* Function will count the frequency of each value in the array
-    and add to previous count or create count 1 if new
-*/
-function countTerms(array) {
-    const freq = {};
-    array.forEach((value) => {
-        freq[value] = freq[value] ? freq[value] + 1: 1;
-    })
-    return freq;
-};
-
-/*
-    function counts the term, and only returns the top 10
-*/
-function sortTerms(object) {
-    const entries = Object.entries(object);
-    entries.sort((a, b) => b[1] - a[1]);
-    const top10 = entries.slice(0,10);
-    const resultTop10 = Object.fromEntries(top10);
-    return resultTop10;
-}
-
 module.exports = {
-    filterResults,
-    countTerms,
-    sortTerms
+    runStats
 };

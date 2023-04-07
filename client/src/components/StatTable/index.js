@@ -2,7 +2,7 @@
 
 const StatTable = ({ data, title}) => {
     return(
-      <div class="stat-result">
+      <div class="stat-table-result">
         <h3>{title}</h3>
         {Object.entries(data).map(([key, value]) => {
           return (

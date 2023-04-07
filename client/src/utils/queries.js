@@ -18,6 +18,14 @@ export const QUERY_LITREVIEWS = gql`
     }
 `;
 
+export const QUERY_ALL_USERS = gql`
+    query Users {
+        users {
+        username
+        }
+    }
+`;
+
 export const QUERY_USER = gql`
     query user($username: String) {
         user(username: $username) {

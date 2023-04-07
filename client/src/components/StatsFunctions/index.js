@@ -1,77 +1,83 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_LITREVIEWS } from '../../utils/queries';
+import { QUERY_LITREVIEWS, QUERY_ALL_USERS } from '../../utils/queries';
 
 import StatTable from '../StatTable';
 
 // Importing the statistic functions
 import { 
-    filterResults, countTerms, sortTerms
+    runStats
 } from '../../utils/stat-functions';
 
 const StatFunctions = () => {
-    // data object
+
+    // User Stats
+    const { data: usersData } = useQuery(QUERY_ALL_USERS);
+    let userArray = [];
+    let totalUsers = 0;
+    if (usersData && usersData.users) {
+      userArray = usersData.users;
+      totalUsers = userArray.length;
+    };    
+
+    // Literature Review Stats
     const { data: litReviewData } = useQuery(QUERY_LITREVIEWS);
-
-    // extracting the litReviews Array from the data object, now an array of litreview arrays
-    const litReviewArray = litReviewData.litReviews;
-
-    // Gives the number of litreviews
-    const totalLitReviews = litReviewArray.length;
-
-    // Uses the filterResults function in utils to get an array of all "variable"
-    const allTerms = filterResults(litReviewArray, "searchTerm");
-    const allSourceType = filterResults(litReviewArray, "articleSourceType");
+    let litReviewArray = [];
+    let totalLitReviews = 0;
+    if (litReviewData && litReviewData.litReviews) {
+        litReviewArray = litReviewData.litReviews;
+        totalLitReviews = litReviewArray.length;
+    }
+ 
+    const searchTermStats = runStats(litReviewArray, "searchTerm");
+    const sourceTypeStats = runStats(litReviewArray, "articleSourceType");
+    const databaseStats = runStats(litReviewArray, "articleDatabase");
     
-    // Above works
-    const numTerms = countTerms(allTerms);
-    console.log(numTerms);
-    const numSource = countTerms(allSourceType);
-
-    //
-    const sortTermsArray = sortTerms(numTerms);
-    console.log(sortTermsArray);
-
-    const sortSourceArray = sortTerms(numSource);
-    console.log(sortSourceArray);
-
-
     return(
         <div class="stat-sections">
-            
-            <h3>
-            Total Number of Lit Reviews: {totalLitReviews}
-            </h3>
-           
-            <div>
-            <StatTable 
-            title="Top Five Literature Review Search Terms"
-            data={sortTermsArray}
-            />
+            <div class="stat-users">
+                <h1>User Stats</h1>
+                <h3>Total Number of Users: {totalUsers}</h3>
             </div>
-            <div>
-            <StatTable 
-            title="Top Five Literature Review Sources"
-            data={sortSourceArray}
-            />
+            <div class="stat-litreviews">
+                <h1>Literature Review Stats</h1>
+                <h3>Total Number of Lit Reviews: {totalLitReviews}</h3>
+                <div>
+                <StatTable 
+                title="Top Five Literature Review Search Terms"
+                data={searchTermStats}
+                />
+                </div>
+                <div>
+                <StatTable 
+                title="Top Five Literature Review Sources"
+                data={sourceTypeStats}
+                />
+                </div>
+
+                <div>
+                <StatTable 
+                title="Top Literature Review Databases"
+                data={databaseStats}
+                />
+                </div>
+
+                <div>
+                -Coming Soon: Pie Chart of Number of Lit Reviews by department
+                </div>
+
+                <div>
+                Coming Soon:
+                Top Lit Review databases
+
+                Lit reviews in the past week:
+                                    past month:
+                                    past 6 months:
+                                    past year:
+                </div>
             </div>
-
-            <div>
-            -Coming Soon: Pie Chart of Number of Lit Reviews by department
-            </div>
-
-            <div>
-            -Coming Soon: Top Lit Review databases
-            </div>
-
-            <div>
-            Coming Soon:
-            Top Lit Review databases
-
-            Lit reviews in the past week:
-                                past month:
-                                past 6 months:
-                                past year:
+            <div class="stat-projects">
+                <h1>Project Stats</h1>
             </div>
         </div>
     )
