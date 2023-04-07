@@ -7,21 +7,22 @@ const LitReviewList = ({ litReviews, title }) => {
         return <h3>There are no lit reviews yet</h3>
     }
 
+    const litReviewHeaders = ["Entered By", "Created At", "Search Term", "Project", "Article Subject",
+        "Article Link", "Article Database", "Article Year", "Article Source Type", "Article Notes"
+    ];
+
     return(
         <div class="table">
             <h3>{title}</h3>
             <table border="1">
             <tr class="table-headers">
-               <th>Entered by</th>
-               <th>createdAt</th>
-               <th>Search Term</th>
-               <th>Project</th>
-               <th>Article Subject</th>
-               <th>Article Link</th>
-               <th>Article Database</th>
-               <th>Article Year</th>
-               <th>Article Source Type</th>
-               <th>Article Notes</th>
+            {litReviewHeaders &&
+            litReviewHeaders.map(item => (
+                <th key={item}>
+                    {item}
+                </th>
+            ))
+            }
             </tr>
             {litReviews &&
             litReviews.map(lit => (

@@ -44,7 +44,7 @@ function Contact() {
                 <select name='commentType' id='commentType'
                     value={commentType} onChange={(e) => setCommentType(e.target.value)}
                 >
-                    <option value='null'>Select Comment Type Below</option>
+                    <option value='null'>Select Comment Type</option>
                     <option value='question'>Question</option>
                     <option value='error'>Error</option>
                     <option value='other'>Other</option>
