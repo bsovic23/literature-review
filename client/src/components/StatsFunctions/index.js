@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_LITREVIEWS, QUERY_ALL_USERS } from '../../utils/queries';
 
 import StatTable from '../StatTable';
+
+// Chart pieces
+import BarChart from '../../charts/bar-chart';
+import { Bar } from 'react-chartjs-2';
 
 // Importing the statistic functions
 import { 
@@ -32,7 +36,7 @@ const StatFunctions = () => {
     const searchTermStats = runStats(litReviewArray, "searchTerm");
     const sourceTypeStats = runStats(litReviewArray, "articleSourceType");
     const databaseStats = runStats(litReviewArray, "articleDatabase");
-    
+
     return(
         <div class="stat-sections">
             <div class="stat-users">

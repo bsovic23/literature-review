@@ -20,6 +20,7 @@ import AddProject from './pages/AddProject';
 import Contact from './pages/Contact';
 import Stats from './pages/Stats';
 import SingleLitEntry from './pages/SingleLitEntry';
+import Graph from './pages/Graphs';
 
 // Application
 function App() {
@@ -80,6 +81,10 @@ function App() {
                <Route
               path="/stats"
               element={<Stats />}
+              />
+               <Route
+              path="/graph"
+              element={<Graph />}
               />
               <Route
                 path="*"
