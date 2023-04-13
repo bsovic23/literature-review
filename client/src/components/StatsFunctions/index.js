@@ -10,11 +10,12 @@ import {
 } from '../../utils/stat-functions';
 
 const StatFunctions = () => {
-
+   
     // User Stats
     const { data: usersData } = useQuery(QUERY_ALL_USERS);
     let userArray = [];
     let totalUsers = 0;
+
     if (usersData && usersData.users) {
       userArray = usersData.users;
       totalUsers = userArray.length;
@@ -24,11 +25,12 @@ const StatFunctions = () => {
     const { data: litReviewData } = useQuery(QUERY_LITREVIEWS);
     let litReviewArray = [];
     let totalLitReviews = 0;
+ 
     if (litReviewData && litReviewData.litReviews) {
         litReviewArray = litReviewData.litReviews;
         totalLitReviews = litReviewArray.length;
-    }
- 
+    };
+
     const searchTermStats = runStats(litReviewArray, "searchTerm");
     const sourceTypeStats = runStats(litReviewArray, "articleSourceType");
     const databaseStats = runStats(litReviewArray, "articleDatabase");
