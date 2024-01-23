@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { MUTATION_ADD_USER, MUTATION_LOGIN } from '../utils/mutations';
+import { MUTATION_ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Signup = () =>{
+const SignUp = () =>{
 
     const [formState, setFormState] = useState({ username: '', email: '', password: ''});
 
@@ -31,6 +31,7 @@ const Signup = () =>{
     });
 
     Auth.login(data.addUser.token);
+    window.location.href = '/home';
 
     } catch (e) {
         console.error(e);
@@ -43,29 +44,44 @@ const Signup = () =>{
                 <h2>Sign Up</h2>
                 <div>
                     <form class="signup-form" onSubmit={handleFormSubmit}>
+                        <label
+                        for='username'
+                        >
+                        Username
+                        </label>
                         <input
+                            type='text'
                             placeholder='Username'
                             name='username'
-                            id='username'
                             value={formState.username}
                             onChange={handleChange}
                         />
+                        <label
+                        for='email'
+                        >
+                        Email
+                        </label>
                         <input
+                            type='text'
                             placeholder='Email'
                             name='email'
-                            id='email'
                             value={formState.email}
                             onChange={handleChange}
                         />
+                        <label
+                        for='password'
+                        >
+                        Password
+                        </label>
                         <input
+                            type='text'
                             placeholder='********'
                             name='password'
-                            id='password'
                             value={formState.password}
                             onChange={handleChange}
                         />
                         <button type="submit" class="signup-form-btn">
-                            SUBMIT
+                            Sign Up
                         </button>
                     </form>
                     {error && <div>Sign up failed</div>}
@@ -75,4 +91,4 @@ const Signup = () =>{
     )
 };
 
-export default Signup;
+export default SignUp;

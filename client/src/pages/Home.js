@@ -10,12 +10,6 @@ import LitReviewList from '../components/LitReviewList';
 const Home = () => {
     const { loading, data } = useQuery(QUERY_LITREVIEWS);
 
-    // litEntries is the graphql point pulling from
-    /*
-        Saving the data from the litEntries graphql point
-        to the const litReviews which is used to send below 
-        to the component
-    */
     const litReviews = data?.litReviews || [];
 
     const loggedIn = Auth.loggedIn();

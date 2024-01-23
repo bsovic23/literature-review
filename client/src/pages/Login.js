@@ -5,7 +5,8 @@ import { MUTATION_LOGIN } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = (props) => {
+const Login = () => {
+
     const [formState, setFormState] = useState({ username: '', password: ''});
 
     const [login, { error }] = useMutation(MUTATION_LOGIN);
@@ -30,6 +31,7 @@ const Login = (props) => {
             });
 
         Auth.login(data.login.token);
+        window.location.href = '/home';
         
         } catch (e) {
             console.error(e);
@@ -43,14 +45,23 @@ const Login = (props) => {
             </div>
             <div class="login-form">
                 <form onSubmit={handleFormSubmit}>
+                    <label
+                    for='username'
+                    >
+                    Username:
+                    </label>
                     <input
+                    type= 'text'
                     placeholder='Your username'
                     name= 'username'
-                    type= 'text'
-                    id= 'username'
                     value= {formState.username}
                     onChange={handleChange}                    
                     />
+                    <label
+                    for='password'
+                    >
+                    Password:
+                    </label>
                     <input
                     placeholder='********'
                     name= 'password'

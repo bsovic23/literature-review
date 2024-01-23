@@ -18,6 +18,7 @@ body {
 }
 
 /* ==================================================== */
+
 /* CSS Table of Contents
 1. Header
 2. Footer
@@ -79,22 +80,7 @@ footer {
 }
 
 /* 3. Signup and login */
-.signup-card, .login {
-  text-align: center;
-}
 
-.signup input, .login input {
-  display: var(--input-display);
-  margin-top: var(--input-margin-top);
-  margin-bottom: var(--input-margin-bottom);
-  margin-left: var(--input-margin-left);
-  border: var(--input-border);
-}
-
-.signup-form-btn, .login-form-btn {
-  border: black 3px solid;
-  margin-bottom: 200px;
-}
 
 /* Home */
 .home h1 {
