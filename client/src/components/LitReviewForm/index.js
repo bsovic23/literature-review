@@ -73,14 +73,17 @@ const LitReviewForm = () => {
     return(
         <div>
             <form class="litreview-form" onSubmit={handleFormSubmit}>
-                <label htmlFor='searchTerm'>Enter the search term you used for this literature review:</label>
-                <input
-                    placeholder='Search Term'
-                    name='searchTerm'
-                    id='searchTerm'
-                    value={searchTerm}
-                    onChange={(e) => setVar1(e.target.value)}
-                />
+                <div class='lit-form-input'>
+                    <label for='searchTerm'>Enter the search term you used for this literature review:</label>
+                    <input
+                        placeholder='Search Term'
+                        name='searchTerm'
+                        id='searchTerm'
+                        value={searchTerm}
+                        onChange={(e) => setVar1(e.target.value)}
+                    />
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='project'>What project are you assigning this literature review for:</label>
                 <input
                     placeholder='Project'
@@ -89,6 +92,8 @@ const LitReviewForm = () => {
                     value={project}
                     onChange={(e) => setVar2(e.target.value)}
                 />
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='articleSubject'>What is the subject of the literature reivew:</label>
                 <input
                     placeholder='Article Subject'
@@ -97,6 +102,8 @@ const LitReviewForm = () => {
                     value={articleSubject}
                     onChange={(e) => setVar3(e.target.value)}
                 />
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='articleLink'>What is the link to the literature review:</label>
                 <input
                     placeholder='Article Link'
@@ -105,6 +112,8 @@ const LitReviewForm = () => {
                     value={articleLink}
                     onChange={(e) => setVar4(e.target.value)}
                 />
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='articleDatabase'>What database did you get the literature review from</label>
                 <input
                     placeholder='Article Database'
@@ -113,6 +122,8 @@ const LitReviewForm = () => {
                     value={articleDatabase}
                     onChange={(e) => setVar5(e.target.value)}
                 />
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='articleyear'>What year was the article published</label>
                 <input
                     placeholder='Article Year'
@@ -121,17 +132,21 @@ const LitReviewForm = () => {
                     value={articleYear}
                     onChange={(e) => setVar6(e.target.value)}
                 />
-                <label htmlFor='articleSourceType'>Article Source Type:</label>
-                <select name='articleSourceType' id='articleSourceType'
-                value={articleSourceType} onChange={(e) => setVar7(e.target.value)}
-                >
-                    <option value='Peer Reviewed Journal Article'>Peer Reviewed Journal Article</option>
-                    <option value='Academic Book'>Academic Book</option>
-                    <option value='Article in Professional Journal'>Article in Professional Journal</option>
-                    <option value='Government Website'>Government Website</option>
-                    <option value='General Website'>General Website</option>
-                    <option value='Other'>Other</option>
-                </select>
+                </div>
+                <div class='lit-form-input'>
+                    <label htmlFor='articleSourceType'>Article Source Type:</label>
+                    <select name='articleSourceType' id='articleSourceType'
+                    value={articleSourceType} onChange={(e) => setVar7(e.target.value)}
+                    >
+                        <option value='Peer Reviewed Journal Article'>Peer Reviewed Journal Article</option>
+                        <option value='Academic Book'>Academic Book</option>
+                        <option value='Article in Professional Journal'>Article in Professional Journal</option>
+                        <option value='Government Website'>Government Website</option>
+                        <option value='General Website'>General Website</option>
+                        <option value='Other'>Other</option>
+                    </select>
+                </div>
+                <div class='lit-form-input'>
                 <label htmlFor='articleNotes'>Enter any notes regarding the literature review here</label>
                 <textarea
                     placeholder='Enter Notes Here'
@@ -142,6 +157,7 @@ const LitReviewForm = () => {
                     value={articleNotes}
                     onChange={(e) => setVar8(e.target.value)}
                 />
+                </div>
                 <button type='submit' class="litreview-form-btn">
                     Submit Brit-ature Review
                 </button>

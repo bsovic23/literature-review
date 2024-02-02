@@ -143,12 +143,15 @@ margin: 25px;
 
 
 /* Literature Review Form Add */
-.litreview-form input, .litreview-form textarea, .litreview-form select {
+.lit-form-input {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 43%;
+}
+
+.lit-form-input input {
   border: black 3px solid;
+  margin-left: 10px;
 }
 
 .litreview-form .litreview-form-btn {
