@@ -1,13 +1,8 @@
 /* Root Variables */
-:root {
-  --colorOne: rgb(45, 162, 180);
 
-  /* Input Root Variables */
-  --input-display: block;
-  --input-margin-top: 10px;
-  --input-margin-bottom: 10px;
-  --input-margin-left: 43%;
-  --input-border: black 3px solid; 
+:root {
+  --backgroundColor: linear-gradient(15deg, #d59027, #9a968b);
+  --colorOne: rgb(45, 162, 180);
 }
 
 body {
@@ -20,14 +15,65 @@ body {
 /* ==================================================== */
 
 /* CSS Table of Contents
+
+OLD DELETE WHEN NOT USING ANYMORE
 1. Header
 2. Footer
 3. Signup and Login
-
-*/
 /* ==================================================== */
 
-/* 1. Header */
+/* CSS Table of Contents */
+
+/*
+1. class 'page'
+2. Landing Page - Signup and Login
+3. Sidebar
+4. Header
+5. Footer
+*/
+
+/* ==================================================== */
+
+/* ----------------------------------------------------- */
+/* 1. class 'page' */
+/* ----------------------------------------------------- */
+
+.page {
+  background-color: var(--backgroundColor);
+}
+
+.page .flexbox {
+  display: flex;
+}
+
+/* ----------------------------------------------------- */
+/* 2. Landing Page - Signup and Login */
+/* ----------------------------------------------------- */
+
+
+/* ----------------------------------------------------- */
+/* 3. Sidebar */
+/* ----------------------------------------------------- */
+
+#sidebar .sidebar-link {
+  display: block;
+  margin: 10px;
+}
+
+#sidebar .sidebar-link button {
+  height: 50px;
+  width: 200px;
+  background-color: gray;
+}
+
+#sidebar .sidebar-link button:hover {
+  background-color: aquamarine;
+}
+
+/* ----------------------------------------------------- */
+/* 4. Header */
+/* ----------------------------------------------------- */
+
 header {
   background-color: var(--colorOne);
   padding: 20px;
@@ -53,7 +99,10 @@ header .header-section h1 {
   background-color: yellow;
 }
 
-/* 2. Footer */
+/* ----------------------------------------------------- */
+/* 5. Footer */
+/* ----------------------------------------------------- */
+
 footer {
   background-color: var(--colorOne);
   text-align: center;
@@ -77,35 +126,6 @@ footer {
 
 #linkedin-icon:hover, #github-icon:hover {
   color: yellow
-}
-
-/* 3. Signup and login */
-
-
-/* Home */
-.home h1 {
-  text-align: center;
-}
-
-.home p {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.home .home-toc {
-  margin-left: 80px;
-  margin-right: 80px;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 10px;
-}
-
-.home .home-toc h4 {
-  text-decoration: underline;
-}
-
-.home .home-toc li {
-  list-style-type: none;
 }
 
 /* Literature Review Database Tables */

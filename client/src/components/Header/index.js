@@ -8,41 +8,37 @@ const Header = () => {
     const logout = event => {
       event.preventDefault();
       Auth.logout();
+      window.alert("You are logged out");
     };
 
     return (
         <header class="header">
           <div class="header-section">
-            <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+            <Link to="/home" style={{textDecoration: 'none', color: 'black'}}>
               <h1>Brit-ature Review</h1>
             </Link>
           </div>
           <nav class="header-nav">
             {Auth.loggedIn() ? (
               <>
-                <div><Link to="/profile" style={{textDecoration: 'none', color: 'black'}}>Me</Link></div>
-                <div><a href="/" onClick={logout} style={{textDecoration: 'none', color: 'black'}}>
-                  Logout 
-                </a></div>
+                <Link to="/profile">
+                  <div>Me</div>
+                </Link>
+                <button onClick={logout}>
+                  Logout
+                </button>
               </>
             ) : (
               <>
-                <div><Link to="/login" style={{textDecoration: 'none', color: 'black'}}>Login</Link></div>
-                <div><Link to="/signup" style={{textDecoration: 'none', color: 'black'}}>Signup</Link></div>
+                <Link to="/login" style={{textDecoration: 'none', color: 'black'}}>
+                  <div>Login</div>
+                </Link>
+                <Link to="/signup" style={{textDecoration: 'none', color: 'black'}}>
+                  <div>Signup</div>
+                </Link>
               </>
             )}
           </nav>
-          <div class="header-nav">
-            <div><Link to="/" style={{textDecoration: 'none', color: 'black'}}>Home</Link></div>
-            <div><Link to="/single-entry" style={{textDecoration: 'none', color: 'black'}}>Add a Brit-ature Review</Link></div>
-            <div>Brit-ature Review Search</div>
-            <div><Link to="/addproject" style={{textDecoration: 'none', color: 'black'}}>Add Project</Link></div>
-            <div><Link to="/project" style={{textDecoration: 'none', color: 'black'}}>All Projects</Link></div>
-            <div><Link to="/stats" style={{textDecoration: 'none', color: 'black'}}>Brit-ature Review Statistics</Link></div>
-          <div class="header-nav">
-            <div><Link to="/contact" style={{textDecoration: 'none', color: 'black'}}>Contact</Link></div>
-          </div>
-          </div>
         </header>
       );
 }
