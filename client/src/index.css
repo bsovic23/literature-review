@@ -49,7 +49,39 @@ OLD DELETE WHEN NOT USING ANYMORE
 /* ----------------------------------------------------- */
 /* 2. Landing Page - Signup and Login */
 /* ----------------------------------------------------- */
+.login-card .signup-card {
+  text-align: center;
+}
 
+.signup-card .form-container, .login-card .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form, .login-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.signup-form-btn, .login-form-btn {
+  margin-top: 10px;
+}
+
+.login input, .login-form-btn, .signup input, .signup-form-btn {
+  margin: 5px;
+  padding: 8px;
+  background-color: rgb(180, 178, 178);
+  border: solid rgb(48, 209, 209) 3px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.login input:hover, .signup input:hover {
+  border: solid yellow 3px;
+}
 
 /* ----------------------------------------------------- */
 /* 3. Sidebar */

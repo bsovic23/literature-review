@@ -40,41 +40,33 @@ const Login = () => {
 
     return(
         <section class="login">
-            <div class="login-header">
-                <h1>LOGIN</h1>
-            </div>
-            <div class="login-form">
-                <form onSubmit={handleFormSubmit}>
-                    <label
-                    for='username'
-                    >
-                    Username:
-                    </label>
-                    <input
-                    type= 'text'
-                    placeholder='Your username'
-                    name= 'username'
-                    value= {formState.username}
-                    onChange={handleChange}                    
-                    />
-                    <label
-                    for='password'
-                    >
-                    Password:
-                    </label>
-                    <input
-                    placeholder='********'
-                    name= 'password'
-                    type= 'password'
-                    id= 'password'
-                    value= {formState.password}
-                    onChange={handleChange}                    
-                    />
-                    <button type="submit" class="login-form-btn">
-                        Login
-                    </button>
-                </form>
-                {error && <div>Login failed</div>}
+            <div class="login-card">
+                <h2>LOGIN</h2>
+                <div class='form-container'>
+                    <form class="login-form" onSubmit={handleFormSubmit}>
+                        <input
+                            type= 'text'
+                            placeholder='Your username'
+                            name= 'username'
+                            value= {formState.username}
+                            onChange={handleChange}
+                            autoComplete='off'                    
+                        />
+                        <input
+                            placeholder='Password'
+                            name= 'password'
+                            type= 'password'
+                            id= 'password'
+                            value= {formState.password}
+                            onChange={handleChange}
+                            autoComplete='off'                     
+                        />
+                        <button type="submit" class="login-form-btn">
+                            Login
+                        </button>
+                    </form>
+                    {error && <div>Login failed</div>}
+                </div>
             </div>
         </section>
     )

@@ -41,43 +41,32 @@ const SignUp = () =>{
     return(
         <section class="signup">
             <div class="signup-card">
-                <h2>Sign Up</h2>
-                <div>
+                <h2>SIGN UP</h2>
+                <div class="form-container">
                     <form class="signup-form" onSubmit={handleFormSubmit}>
-                        <label
-                        >
-                        Username
-                        </label>
                         <input
                             type='text'
                             placeholder='Username'
                             name='username'
                             value={formState.username}
                             onChange={handleChange}
+                            autoComplete='off' 
                         />
-                        <label
-                        for='email'
-                        >
-                        Email
-                        </label>
                         <input
                             type='text'
                             placeholder='Email'
                             name='email'
                             value={formState.email}
                             onChange={handleChange}
+                            autoComplete='off' 
                         />
-                        <label
-                        for='password'
-                        >
-                        Password
-                        </label>
                         <input
                             type='text'
-                            placeholder='********'
+                            placeholder='Password'
                             name='password'
                             value={formState.password}
                             onChange={handleChange}
+                            autoComplete='off' 
                         />
                         <button type="submit" class="signup-form-btn">
                             Sign Up
