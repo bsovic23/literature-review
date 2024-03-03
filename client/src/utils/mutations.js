@@ -43,14 +43,16 @@ export const MUTATION_ADD_LITENTRY = gql`
 `
 
 export const MUTATION_ADD_PROJECT = gql`
-    mutation Mutation($projectName: String, $projectDetails: String, $projectType: String) {
-        addProject(projectName: $projectName, projectDetails: $projectDetails, projectType: $projectType) {
-        _id
+    mutation AddProject($projectName: String, $projectDetails: String, $projectType: String, $projectLitReviewOutline: [ProjectLitReviewOutlineInput]) {
+        addProject(projectName: $projectName, projectDetails: $projectDetails, projectType: $projectType, projectLitReviewOutline: $projectLitReviewOutline) {
         projectName
         projectDetails
         projectType
+        projectLitReviewOutline {
+            fieldName
         }
-  }
+        }
+    }
 `;
 
 export const MUTATION_ADD_COMMENT = gql`

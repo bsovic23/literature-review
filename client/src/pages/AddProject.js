@@ -31,6 +31,7 @@ function AddProject() {
     // Submit Form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(projectFieldList);
 
         try {
             await addProject({
@@ -38,7 +39,7 @@ function AddProject() {
                     projectName,
                     projectDetails,
                     projectType,
-                    projectFieldList
+                    projectLitReviewOutline: projectFieldList.map(field => ({ fieldName: field.projectField }))
                 },
             });
 

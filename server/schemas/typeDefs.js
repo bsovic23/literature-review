@@ -20,7 +20,6 @@ const typeDefs = gql`
 
     type ProjectLitReviewOutline {
         fieldName: String!
-        fieldType: String!
     }
     
     type Project {
@@ -28,7 +27,7 @@ const typeDefs = gql`
         projectName: String
         projectDetails: String
         projectType: String
-        projectLitReviewOutlines: [ProjectLitReviewOutline!]!
+        projectLitReviewOutline: [ProjectLitReviewOutline!]!
         projectLitReview: [LitReview]
     }
 
@@ -76,13 +75,12 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, department: String): Auth
         addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleSourceType: String, articleNotes: String): LitReview
-        addProject(projectName: String, projectDetails: String, projectType: String, projectLitReviewOutlines:[ProjectLitReviewOutlineInput]): Project
+        addProject(projectName: String, projectDetails: String, projectType: String, projectLitReviewOutline:[ProjectLitReviewOutlineInput]): Project
         addComment(commentType: String, commentBody: String): Comment
     }
 
     input ProjectLitReviewOutlineInput {
         fieldName: String!
-        fieldType: String!
     }
 `;
 

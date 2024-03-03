@@ -106,7 +106,10 @@ const resolvers = {
         // Project Mutations
         addProject: async (parent, args, context) => {
             if (context.user) {
-                const project = await Project.create({ ... args })
+                const project = await Project.create({ 
+                    ... args,
+                    projectLitReviewOutline: args.projectLitReviewOutline,
+                })
             
                 return project;
             }

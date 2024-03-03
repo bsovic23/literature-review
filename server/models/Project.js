@@ -5,10 +5,6 @@ const projectLitReviewOutlineSchema = new Schema({
         type: String,
         required: true,
     },
-    fieldType: {
-        type: String,
-        required: true,
-    },
 });
 
 const projectSchema = new Schema(
