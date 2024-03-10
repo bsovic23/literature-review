@@ -21,6 +21,14 @@ const projectSchema = new Schema(
         projectType: {
             type: String
         },
+        projectMembers: {
+            type: String
+        },
+        projectSuggestedFields: [
+            {
+                type: String
+            }
+        ],
         projectLitReviewOutline: [projectLitReviewOutlineSchema],
         projectLitReview: [
             {

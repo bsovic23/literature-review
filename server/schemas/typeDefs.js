@@ -27,7 +27,9 @@ const typeDefs = gql`
         projectName: String
         projectDetails: String
         projectType: String
-        projectLitReviewOutline: [ProjectLitReviewOutline!]!
+        projectMembers: String
+        projectSuggestedFields: [String]
+        projectLitReviewOutline: [ProjectLitReviewOutline]
         projectLitReview: [LitReview]
     }
 
@@ -75,7 +77,7 @@ const typeDefs = gql`
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, department: String): Auth
         addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleSourceType: String, articleNotes: String): LitReview
-        addProject(projectName: String, projectDetails: String, projectType: String, projectLitReviewOutline:[ProjectLitReviewOutlineInput]): Project
+        addProject(projectName: String, projectDetails: String, projectType: String, projectMembers: String, projectSuggestedFields: [String], projectLitReviewOutline:[ProjectLitReviewOutlineInput]): Project
         addComment(commentType: String, commentBody: String): Comment
     }
 

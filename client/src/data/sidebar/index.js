@@ -1,6 +1,7 @@
 // Sidebar data
 
 export const sidebarData = [
+    {text: 'Home', link: '/home', picture: 'picture location', description: 'description'},
     {text: 'Add Brit-ature Review', link: '/single-entry', picture: 'picture location', description: 'description'},
     {text: 'Add Project', link: '/addproject', picture: 'picture location', description: 'description'},
     {text: 'Brit-ature Review Search', link: '/home', picture: 'picture location', description: 'description'},
