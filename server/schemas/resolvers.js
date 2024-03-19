@@ -106,10 +106,26 @@ const resolvers = {
         // Project Mutations
         addProject: async (parent, args, context) => {
             if (context.user) {
+                const { projectMembers } = args;
+
                 const project = await Project.create({ 
                     ... args,
                     projectLitReviewOutline: args.projectLitReviewOutline,
-                })
+                });
+
+                await Promise.all(projectMembers.map(async (username) => {
+                    await User.findOneAndUpdate(
+                        { username },
+                        { $push: { projects: project.projectName }},
+                        { new: true }
+                    );
+                }));
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { projects: project.projectName }},
+                    { new: true }
+                );
             
                 return project;
             }

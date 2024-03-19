@@ -24,6 +24,11 @@ const userSchema = new Schema(
             ref: 'Department',
             type: Schema.Types.ObjectId
         },
+        projects: [
+            {
+                type: String
+            }
+        ],
         litReviews: [
             {
                 type: Schema.Types.ObjectId,

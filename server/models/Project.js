@@ -21,9 +21,11 @@ const projectSchema = new Schema(
         projectType: {
             type: String
         },
-        projectMembers: {
-            type: String
-        },
+        projectMembers: [
+            {
+                type: String
+            }
+        ],
         projectSuggestedFields: [
             {
                 type: String
