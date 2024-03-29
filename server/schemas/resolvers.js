@@ -107,15 +107,19 @@ const resolvers = {
         addProject: async (parent, args, context) => {
             if (context.user) {
                 const { projectMembers } = args;
+                console.log(args);
+                console.log(projectMembers);
 
                 const project = await Project.create({ 
                     ... args,
                     projectLitReviewOutline: args.projectLitReviewOutline,
                 });
 
-                await Promise.all(projectMembers.map(async (username) => {
+                await Promise.all(projectMembers.map(async (member) => {
+
+                    const { fieldName } = member;
                     await User.findOneAndUpdate(
-                        { username },
+                        { username: fieldName },
                         { $push: { projects: project.projectName }},
                         { new: true }
                     );

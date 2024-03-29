@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const projectLitReviewOutlineSchema = new Schema({
+const arraySchema = new Schema({
     fieldName: {
         type: String,
         required: true,
@@ -21,17 +21,13 @@ const projectSchema = new Schema(
         projectType: {
             type: String
         },
-        projectMembers: [
-            {
-                type: String
-            }
-        ],
+        projectMembers: [arraySchema],
         projectSuggestedFields: [
             {
                 type: String
             }
         ],
-        projectLitReviewOutline: [projectLitReviewOutlineSchema],
+        projectLitReviewOutline: [arraySchema],
         projectLitReview: [
             {
                 type: Schema.Types.ObjectId,

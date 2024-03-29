@@ -13,11 +13,30 @@ function AddProject() {
     const [projectName, setProjectName] = useState('');
     const [projectDetails, setProjectDetails] = useState('');
     const [projectType, setProjectType] = useState('');
-    const [projectMembers, setProjectMembers] = useState('');
+    const [projectMembersList, setProjectMembersList] = useState([{ memberField: "" }]);
     const [projectSuggestedFields, setProjectSuggestedFields] = useState([]);
     const [projectFieldList, setProjectFieldList] = useState([{ projectField: "" }]);
 
     const [addProject, { error }] = useMutation(MUTATION_ADD_PROJECT); 
+
+    // Add User Access to Project
+    const handleProjectMemberChange = (e, index) => {
+        const {name, value} = e.target;
+        const list = [...projectMembersList];
+        list[index][name] = value;
+        setProjectMembersList(list);
+    }
+
+    const handleAddProjectMember = () => {
+        setProjectMembersList([...projectMembersList, { memberField: "" }]);
+    };
+
+    // Remove User Access to Project
+    const handleRemoveProjectMember = (index) => {
+        const list = [...projectMembersList];
+        list.splice(index, 1);
+        setProjectMembersList(list);
+    }
 
     // Handle Project Suggested Fields
     const handleCheckboxChange = (field) => {
@@ -59,7 +78,7 @@ function AddProject() {
                     projectName,
                     projectDetails,
                     projectType,
-                    projectMembers,
+                    projectMembers: projectMembersList.map(field => ({ fieldName: field.projectMemberUsername })),
                     projectSuggestedFields,
                     projectLitReviewOutline: projectFieldList.map(field => ({ fieldName: field.projectField }))
                 },
@@ -68,7 +87,7 @@ function AddProject() {
             setProjectName('');
             setProjectDetails('');
             setProjectType('');
-            setProjectMembers('');
+            setProjectMembersList([{ memberField: "" }]);
             setProjectSuggestedFields([]);
             setProjectFieldList([{ projectField: "" }]);
 
@@ -121,16 +140,43 @@ function AddProject() {
                             onChange={(e) => setProjectType(e.target.value)}
                             />
                         </div>
-                        <div class='project-input-field'>
-                            <label htmlFor='projectMembers'>Access to the project:</label>
-                            <input
-                            placeholder='project members'
-                            id='projectMembers'
-                            name='projectMembers'
-                            type='text'
-                            value={projectMembers}
-                            onChange={(e) => setProjectMembers(e.target.value)}
-                            />
+                        <p>Add Usernames of all members that need access to the project</p>
+                        <div>
+                            <form>
+                                {projectMembersList.map((field, index) => (
+                                    <div key={index}>
+                                        <div>
+                                            <label>Username:</label>
+                                            <input
+                                                type='text'
+                                                placeholder='type username here'
+                                                name='projectMemberUsername'
+                                                id='projectMemberUsername'
+                                                value={field.projectMemberUsername}
+                                                onChange={(e) => handleProjectMemberChange(e, index)}
+                                            />
+                                            {projectMembersList.length > 1 && (
+                                                <button
+                                                    type='button'
+                                                    class='remove-btn'
+                                                    onClick={() => handleRemoveProjectMember(index)}
+                                                >
+                                                    Remove Project Member
+                                                </button>
+                                            )}
+                                        </div>
+                                        {projectMembersList.length - 1 === index && (
+                                            <button
+                                                type='button'
+                                                class='add-button'
+                                                onClick={handleAddProjectMember}    
+                                            >
+                                                + Add Additional Project User
+                                            </button>
+                                        )}
+                                    </div>
+                                ))}
+                            </form>
                         </div>
                         <div>
                             Suggested Fields to include below. Select suggested fields you do wish to include
