@@ -28,7 +28,7 @@ const projectSchema = new Schema(
             }
         ],
         projectLitReviewOutline: [arraySchema],
-        projectLitReview: [
+        projectLitReviews: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'LitReview'

@@ -14,9 +14,7 @@ const typeDefs = gql`
         password: String
         department: String
         projects: [String]
-        litReviews: [LitReview]
         comments: [Comment]
-        litReviewCount: Int
     }
 
     type ArraySchema {
@@ -31,7 +29,18 @@ const typeDefs = gql`
         projectMembers: [ArraySchema]
         projectSuggestedFields: [String]
         projectLitReviewOutline: [ArraySchema]
-        projectLitReview: [LitReview]
+        projectLitReviews: [LitReview]
+    }
+
+    type LitReview {
+        _id: ID
+        createdAt: String!
+        fields: [LitReviewField!]!
+    }
+    
+    type LitReviewField {
+        fieldName: String!
+        fieldValue: String!
     }
 
     type Department {
@@ -41,20 +50,6 @@ const typeDefs = gql`
         departmentArea: String
         departmentDescription: String
         departmentMembers: [User]
-    }
-
-    type LitReview {
-        _id: ID
-        username: String
-        createdAt: String
-        searchTerm: String
-        project: String
-        articleSubject: String
-        articleLink: String
-        articleDatabase: String
-        articleYear: String
-        articleSourceType: String
-        articleNotes: String
     }
 
     type Comment {
@@ -69,7 +64,6 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(username: String): User
-        litReviews(username: String): [LitReview]
         projects: [Project]
         comments: [Comment]
     }
@@ -77,13 +71,18 @@ const typeDefs = gql`
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, department: String, projects: [String]): Auth
-        addLitReview(searchTerm: String, project: String, articleSubject: String, articleLink: String, articleDatabase: String, articleYear: String, articleSourceType: String, articleNotes: String): LitReview
         addProject(projectName: String, projectDetails: String, projectType: String, projectMembers: [ArraySchemaInput], projectSuggestedFields: [String], projectLitReviewOutline: [ArraySchemaInput]): Project
+        addLitReview(projectName: String, litReviewData: [LitReviewDataInput]): LitReview
         addComment(commentType: String, commentBody: String): Comment
     }
 
     input ArraySchemaInput {
         fieldName: String!
+    }
+    
+    input LitReviewDataInput {
+        fieldName: String!
+        fieldValue: String!
     }
 `;
 

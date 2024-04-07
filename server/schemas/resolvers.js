@@ -36,15 +36,18 @@ const resolvers = {
                 .populate('litReviews');
         },
 
-        // LitEntry Queries
+        // LitEntry Queries - NEED TO UPDATE AND CHANGE 
+        /*
         litReviews: async (parent, { username }) => {
             const params = username ? { username } : {};
             return LitReview.find(params).sort({ createdAt: -1 });
         },
+
+        */
+
         // Project Queries
         projects: async () => {
-            return Project.find()
-            .populate('projectLitReview');
+            return Project.find();
         },
 
         // Comment Queries
@@ -78,37 +81,10 @@ const resolvers = {
             return { token, user };
         },
 
-        // Literature Review Mutations
-        addLitReview: async ( parent, args, context) => {
-            if (context.user) {
-                const litReview = await LitReview.create({ ...args, username: context.user.username });
-                const { project } = args;
-
-                await Promise.all([
-                User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $push: { litReviews: litReview._id }},
-                    { new: true }
-                ),
-                Project.findOneAndUpdate(
-                    { projectName: project },
-                    { $push: { projectLitReview: litReview._id }},
-                    { new: true }
-                ),
-                ]);
-
-                return litReview;
-            }
-
-            throw new AuthenticationError('You must be logged in');
-        },
-
         // Project Mutations
         addProject: async (parent, args, context) => {
             if (context.user) {
                 const { projectMembers } = args;
-                console.log(args);
-                console.log(projectMembers);
 
                 const project = await Project.create({ 
                     ... args,
@@ -134,6 +110,47 @@ const resolvers = {
                 return project;
             }
 
+            throw new AuthenticationError('You must be logged in');
+        },
+
+        // Literature Review Mutations
+
+        // TO DO: 1) lit review id pushed to user array of lit reviews 2) lit review pushed to project
+        addLitReview: async (parent, { projectName, litReviewData }, context) => {
+        
+            if (context.user) {
+                try {
+                    // If logged in -> find project by projectName
+                    const project = await Project.findOne({ projectName });
+        
+                    if (!project) {
+                        throw new Error('Project not found');
+                    }
+                    
+                    // Create litReview in litReview Model
+                    const litReview = await LitReview.create({ fields: litReviewData });
+
+                    // Add litReview ID to users litReviewId
+                    await User.findByIdAndUpdate(
+                        { _id: context.user._id },
+                        { $push: { litReviews: litReview._id }},
+                        { new: true }
+                    );
+                    
+                    // Push the litReviewData to the projectLitReviews Array
+                    await Project.findOneAndUpdate(
+                        { projectName },
+                        { $push: { projectLitReviews: litReview._id }},
+                        { new: true }
+                    );
+                    
+                    return litReview;
+
+                } catch (error) {
+                    throw new Error(`Failed to add lit review: ${error.message}`);
+                }
+            }
+        
             throw new AuthenticationError('You must be logged in');
         },
 

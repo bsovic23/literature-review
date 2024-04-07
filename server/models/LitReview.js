@@ -1,40 +1,23 @@
 const { Schema, model } = require('mongoose');
 
-const litReviewSchema = new Schema(
-    {
-        username: {
-            type: String
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now
-        },
-        searchTerm: {
-            type: String
-        },
-        project: {
-            type: String,
-        },
-        articleSubject: {
-            type: String
-        },
-        articleLink: {
-            type: String
-        },
-        articleDatabase: {
-            type: String
-        },
-        articleYear: {
-            type: String
-        },
-        articleSourceType: {
-            type: String
-        },
-        articleNotes: {
-            type: String
-        }
+const LitReviewField = new Schema({
+    fieldName: {
+        type: String,
+        required: true,
+    },
+    fieldValue: {
+        type: String,
+        required: true,
     }
-);
+});
+
+const litReviewSchema = new Schema({
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    fields: [LitReviewField]
+});
 
 const LitReview = model('LitReview', litReviewSchema);
 
